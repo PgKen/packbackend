@@ -301,6 +301,16 @@ router.post('/newAddStock', (req, res) => {
 
           conn.query(sqlUpdate, (err, resultUpdate) => {
             console.log("update Ok");
+            let sqlInsDo = "INSERT INTO new_do(date_do,num_do,unit,price_do,id_product) "
+            sqlInsDo += "VALUES ('" + valDate[0] + "','" + valDo[0] + "', '" +
+              valUnit[0] + "', '" + result[0].cost + "', '" + result[0].id_stock + "');"
+            console.log("sql = " + sqlInsDo);
+            conn.query(sqlInsDo, (err, resultInsDo) => {
+              if (err) throw err;
+              console.log("Success InsDo"); // commit 19-4-62
+
+            })
+
             res.redirect('stock')
           })
 
@@ -424,7 +434,6 @@ router.get('/stock', (req, res) => {
     })
     //console.log(result);
   })
-
 })
 
 
