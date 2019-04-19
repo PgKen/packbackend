@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+var unirest = require('unirest');
+
 var mysql = require('mysql')
 // var conn = mysql.createConnection({
 //   host: 'localhost',
@@ -118,6 +120,7 @@ router.get('/recSeller', (req, res) => {
 })
 
 router.post('/addStock', (req, res) => {
+
   let object = req.body
   let nGetId = req.body
   let numGetId = nGetId.getId.length
@@ -127,6 +130,7 @@ router.post('/addStock', (req, res) => {
   let newAvg = 0
   let totalAvg = 0
   //let total = 0
+
 
   console.log("Loop :" + numGetId);
   //console.log(object[0].getUnit);
@@ -213,13 +217,15 @@ router.post('/addStock', (req, res) => {
   }, 1500);
 })
 
+
+
+
 router.post('/newAddStock', (req, res) => {
   let obj = req.body
   //res.send('new add 2')
   console.log(obj);
   console.log(typeof (obj));
   console.log("-------------");
-
 
   let arr1 = {}
   for (var key in req.body) {
@@ -356,16 +362,27 @@ router.post('/newAddStock', (req, res) => {
 
             conn.query(sqlUpdate, (err, resultUpdate) => {
               console.log("Multi update Ok");
+              stausSuccess = 1
             })
+            //res.redirect('stock')
+
           } else {
-            console.log("insert multi");
+            console.log("insert multi 11");
           }
+
+
         })
 
         console.log("------sql_in_up--------");
+
       })
+
     }
+    setTimeout(() => {
+      res.redirect('stock')
+    }, 2000);
   }
+
   // ใช้งานชุดนี้
   /*
   console.log("valId = " + valId[0]);
@@ -411,22 +428,42 @@ router.get('/stock', (req, res) => {
 })
 
 
-router.get('/setting', (req, res) => {
+router.get('/data/setting', (req, res) => {
   let sql = "SELECT *,seller.id_seller as main_id_seller FROM new_stock "
   sql += "INNER JOIN new_product ON new_stock.stock_id_stock = new_product.id_stock "
   sql += "INNER JOIN seller ON new_product.id_seller = seller.id_seller "
   sql += "GROUP BY new_product.id_stock"
-
-
-
   conn.query(sql, (err, result) => {
-    res.render('setting', {
-      title: 'บ้านบรรจุภัณฑ์',
-      data: result
-    })
-    //console.log(result);
-
+    res.send(result)
   })
+})
+
+
+router.get('/setting', (req, res) => {
+  /*
+  let sql = "SELECT *,seller.id_seller as main_id_seller FROM new_stock "
+  sql += "INNER JOIN new_product ON new_stock.stock_id_stock = new_product.id_stock "
+  sql += "INNER JOIN seller ON new_product.id_seller = seller.id_seller "
+  sql += "GROUP BY new_product.id_stock"
+  */
+  unirest.get('http://localhost:3800/data/setting')
+    .end((result) => {
+      console.log(result.body.length);
+
+      res.render('setting', {
+        title: "บ้านบรรจุภัณฑ์",
+        data: result.body,
+        datalength: result.body.length
+      })
+    })
+  /*
+    conn.query(sql, (err, result) => {
+      res.render('setting', {
+        title: 'บ้านบรรจุภัณฑ์',
+        data: result
+      })
+      //console.log(result);
+  })*/
 
 })
 

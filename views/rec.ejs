@@ -52,7 +52,7 @@
                             </div>
                         </li>
                         <!-- <form action="/addStock" method="POST"> -->
-                        <form action="/newAddStock" method="POST">
+                        <form action="/newAddStock" method="POST" onsubmit="return statusSubmit()">
                             <input type="hidden" id="setDoNumber" name="getDo">
                             <input type="hidden" id="setDate" name="getDate">
                             <li class="RecBox1">
@@ -183,7 +183,7 @@
         if (arrIdProduct[0] != undefined) {
             txt += "<ul><li><input name='getIdSeller' type='hidden' value='" + arrIdSeller[0] + "'></li></ul>"
             txt += "<ul><li>"
-            txt += "<button type='submit' onclick='statusSubmit()'>บันทึก</button>"
+            txt += "<button type='submit'>บันทึก</button>"
             txt += "<button onclick='clearListArr()'>ลบรายการทั้งหมด</button>"
             txt += "</li></ul>"
         }
@@ -192,8 +192,28 @@
 
     function statusSubmit() {
 
-        document.getElementById('boxStatus').innerHTML = "กำลังบันทึก................."
-        document.getElementById('boxStatus').style.backgroundColor = "#FF9800"
+        /*document.getElementById('boxStatus').innerHTML = "กำลังบันทึก................."
+        document.getElementById('boxStatus').style.backgroundColor = "#FF9800"*/
+
+        let getDo = document.getElementById('setDoNumber').value
+        let getDate = document.getElementById('setDate').value
+        if (getDo == "" && getDate == "") {
+            alert("โปรดกรอกเลขที่ใบรับสินค้า และ วันที่รับสินค้า")
+            return false;
+        } else if (getDo == "" && getDate != "") {
+            alert("โปรดกรอกเลขที่ใบรับสินค้า")
+            return false;
+        } else if (getDate == "" && getDo != "") {
+            alert("โปรดกรอกวันที่รับสินค้า")
+            return false;
+        } else {
+            document.getElementById('boxStatus').innerHTML = "กำลังบันทึก................."
+            document.getElementById('boxStatus').style.backgroundColor = "#FF9800"
+            return true;
+
+        }
+
+
 
     }
 
