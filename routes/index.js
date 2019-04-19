@@ -211,13 +211,11 @@ router.post('/addStock', (req, res) => {
   setTimeout(() => {
     res.redirect('Stock')
   }, 1500);
-
-  //res.send("OK")
 })
 
 router.post('/newAddStock', (req, res) => {
   let obj = req.body
-  res.send('new add')
+  //res.send('new add 2')
   console.log(obj);
   console.log(typeof (obj));
   console.log("-------------");
@@ -297,8 +295,8 @@ router.post('/newAddStock', (req, res) => {
 
           conn.query(sqlUpdate, (err, resultUpdate) => {
             console.log("update Ok");
+            res.redirect('stock')
           })
-
 
         } else {
           console.log("insert");
@@ -431,7 +429,5 @@ router.get('/setting', (req, res) => {
   })
 
 })
-
-
 
 module.exports = router;
