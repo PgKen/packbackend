@@ -1,0 +1,500 @@
+@import url('https://fonts.googleapis.com/css?family=Kanit');
+
+body {
+    padding: 0;
+    margin: 30px;
+    font-family: 'Kanit', sans-serif;
+
+    .boxMainBody {
+        display: flex;
+        //border: 1px solid red;
+        flex-direction: column;
+
+        .boxHeader {
+            flex: 1;
+            font-size: 30px;
+            justify-content: center;
+            display: flex;
+            background-color: #0d430f;
+            color: beige;
+            padding: 10px;
+        }
+
+        .boxContain {
+            display: flex;
+            flex-direction: row;
+            border: 1px solid #CCC;
+
+            .boxMenu {
+                flex: 1;
+                background-color: #8d918d;
+                //border: 1px solid blue;
+
+                ul {
+                    padding: 0;
+                    margin: 0;
+                    list-style: none;
+
+                    li {
+                        border-bottom: 1px solid #CCC;
+                        font-size: 24px;
+                        text-indent: 20px;
+                        /* justify-content: center; */
+                        /* display: flex; */
+                        padding: 5px;
+                        background-color: #1b891f;
+                        color: #FFEB3B;
+                        letter-spacing: 3px;
+                        cursor: pointer;
+                        transition: all 0.3s linear;
+                        -webkit-transition: all 0.3s linear;
+                        -moz-transition: all 0.3s linear;
+                        -ms-transition: all 0.3s linear;
+                        -o-transition: all 0.3s linear;
+
+                        &:hover {
+                            background-color: #FFEB3B;
+                            color: #1b891f;
+                        }
+                    }
+                }
+            }
+
+            .boxArticle {
+                flex: 3;
+                border: 1px solid green;
+                display: flex;
+                flex-direction: column;
+                //justify-content: center;
+                justify-content: flex-start;
+                background-color: #CCC;
+
+                .boxTitleName {
+                    //flex: 1;
+                    font-size: 22px;
+                    background-color: #4ea29a;
+                    display: flex;
+                    justify-content: center;
+                    padding: 10px;
+                }
+
+                .boxStock {
+                    display: flex;
+                    //border: 1px solid red;
+
+                    ul {
+                        display: flex;
+                        flex: 1;
+                        flex-direction: column;
+                        padding: 0;
+                        margin: 0;
+
+                        li:nth-child(1) {
+                            //border: 1px solid red;
+                            background-color: #0d430f;
+
+                            span {
+                                display: flex;
+                                color: bisque;
+                                justify-content: center;
+                            }
+
+                            span:nth-child(2) {
+                                flex: 3;
+                                justify-content: center;
+                            }
+                        }
+
+                        li:nth-child(even) {
+                            background-color: #939b9b;
+                        }
+
+                        li {
+                            display: flex;
+                            flex: 1;
+                            flex-direction: row;
+                            border-bottom: 1px solid cadetblue;
+
+                            span:nth-child(1) {
+                                flex: 1;
+                                justify-content: center;
+
+                            }
+
+                            span:nth-child(2) {
+                                flex: 3;
+                                justify-content: flex-start;
+                            }
+
+                            span {
+                                display: flex;
+                                border-left: 1px solid cadetblue;
+                                flex: 2;
+                                justify-content: flex-end;
+                                //border: 1px solid green;
+                            }
+                        }
+                    }
+                }
+
+                .boxSetting {
+                    display: flex;
+                    flex-direction: column;
+                    flex: 1;
+                    //border: 1px solid red;
+
+                    ul {
+                        display: flex;
+                        //flex: 1;
+                        flex-direction: column;
+                        padding: 0;
+                        margin: 0;
+                        justify-content: center;
+
+                        li:nth-child(1) {
+                            //border: 1px solid red;
+                            background-color: #0d430f;
+
+                            span {
+                                display: flex;
+                                color: bisque;
+                                justify-content: center;
+                            }
+
+                            span:nth-child(2) {
+                                flex: 3;
+                                justify-content: center;
+                            }
+
+                            span:nth-child(3) {
+                                flex: 3;
+                                justify-content: center;
+                            }
+                        }
+
+                        li:nth-child(even) {
+                            background-color: #939b9b;
+                        }
+
+                        li {
+                            display: flex;
+                            flex: 1;
+                            flex-direction: row;
+                            border-bottom: 1px solid cadetblue;
+
+                            span:nth-child(1) {
+                                flex: 1;
+                                justify-content: center;
+
+                            }
+
+                            span:nth-child(2) {
+                                flex: 3;
+                                justify-content: flex-start;
+                            }
+
+                            span:nth-child(3) {
+                                flex: 3;
+                                justify-content: flex-start;
+                            }
+
+                            span {
+                                display: flex;
+                                border-left: 1px solid cadetblue;
+                                flex: 2;
+                                justify-content: flex-end;
+
+                                //border: 1px solid green;
+                                input[type="text"] {
+                                    flex: 1;
+                                    text-align: center;
+                                    margin: 0 5px 0 5px;
+                                }
+                            }
+
+                            button {
+                                //margin: 10px;
+                                margin: 10px auto;
+                                font-size: 20px;
+                                padding: 5px 10px;
+                            }
+                        }
+                    }
+                }
+
+                .boxRec {
+
+                    padding: 0;
+                    margin: 0;
+                    display: flex;
+                    flex-direction: row;
+                    //border: 1px solid red;
+                    flex-wrap: wrap;
+                    list-style: none;
+                    justify-content: center;
+
+                    ul {
+                        list-style: none;
+                        padding: 0;
+                        margin: 0;
+                        flex: 1;
+                        justify-content: flex-start;
+                        display: flex;
+                        flex-direction: column;
+
+                        li.headRec {
+                            height: 100px;
+                            font-size: 30px;
+                            /* text-align: center; */
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            flex-direction: column;
+
+                            span {
+                                font-size: 28px;
+                                //color: blue;
+                            }
+
+                            input {
+                                color: blue;
+                            }
+                        }
+
+
+                        li.RecBox1 {
+
+                            //height: 90px;
+                            display: flex;
+                            flex-direction: row;
+
+                            .subRecBox1 {
+                                display: flex;
+                                flex-direction: row;
+                                flex-wrap: wrap;
+                                flex: 1;
+                                justify-content: center;
+                                border: 1px solid #292f2e;
+                                margin: 4px;
+                                padding: 10px;
+                                justify-content: flex-start;
+                                border-radius: 10px span;
+                                -webkit-border-radius: 10px;
+                                -moz-border-radius: 10px;
+                                -ms-border-radius: 10px;
+                                -o-border-radius: 10px;
+
+                                //border: 1px solid green;
+                                span {
+                                    flex-basis: 48%;
+                                    font-size: 18px;
+                                }
+                            }
+
+
+
+                            ul.subRecData {
+                                display: flex;
+                                flex: 1;
+                                border: 1px solid red;
+
+
+
+                                li {
+                                    flex: 1;
+                                    border: 1px solid pink;
+                                }
+                            }
+
+                            .RecboxData {
+                                border: 1px solid blue;
+                                display: flex;
+                                flex: 1;
+                                flex-wrap: wrap;
+                                margin-top: 10px;
+
+                                .RecBoxHead {
+                                    flex-basis: 70%;
+                                    background-color: #009688;
+                                    //display: flex;
+                                    flex-wrap: wrap;
+
+                                    ul:nth-child(1) {
+                                        background-color: #0d430f;
+                                        color: beige;
+
+                                        li {
+                                            justify-content: center;
+                                            align-items: center;
+                                        }
+
+                                    }
+
+                                    ul {
+                                        display: flex;
+                                        flex-basis: 100%;
+                                        flex-direction: row;
+                                        background-color: beige;
+                                        border-bottom: 1px solid #ccc;
+
+
+                                        li {
+                                            flex: 1;
+                                            display: flex;
+                                            justify-content: center;
+                                            border-left: 1px solid #CCC;
+
+                                            input[type='text'] {
+                                                color: darkblue;
+                                                text-align: center;
+                                            }
+
+                                            button {
+                                                margin: 10px;
+                                                padding: 5px 10px;
+                                                font-size: 18px;
+                                            }
+                                        }
+                                    }
+
+
+
+
+
+                                }
+
+                                .RecBoxProduct {
+
+                                    margin: 0 0 0 10px;
+                                    flex-direction: column;
+                                    flex: 1;
+                                    background-color: #bbefbd;
+
+                                    ul:nth-child(1) {
+                                        background-color: #42bc47;
+                                        display: flex;
+                                        justify-content: center;
+                                        flex: 1;
+
+                                        li {
+                                            border: none;
+                                            display: flex;
+                                            justify-content: center;
+                                        }
+                                    }
+
+                                    ul:nth-child(2) {
+                                        display: flex;
+                                        justify-content: center;
+                                        flex: 1;
+
+                                        li:nth-child(1) {
+                                            display: flex;
+                                            //color: red;
+                                            background-color: #4dda53;
+                                        }
+
+                                        li {
+                                            cursor: pointer;
+                                            display: flex;
+                                            justify-content: center;
+                                            border-bottom: 1px solid #CCC;
+
+                                            span:nth-child(1) {
+                                                display: flex;
+                                                flex: 2;
+                                                justify-content: center;
+                                                //border: 1px solid red;
+                                            }
+
+                                            span {
+                                                border-left: 1px solid #CCC;
+                                                display: flex;
+                                                flex: 1;
+                                                justify-content: center;
+
+                                            }
+                                        }
+                                    }
+
+                                    ul.recButton {
+                                        li {
+                                            display: flex;
+                                            justify-content: center;
+                                            //border: 1px solid red;
+                                            background-color: #009688;
+                                            padding: 5px;
+
+                                            button {
+                                                padding: 5px 10px;
+                                            }
+                                        }
+                                    }
+
+
+                                }
+                            }
+
+                        }
+
+                        li {
+                            //border: 1px solid red;
+                            //flex: 1;
+
+                            label {
+                                flex: 1;
+                            }
+
+                            input[type='text'] {
+                                flex: 3;
+                            }
+                        }
+                    }
+                }
+
+                .boxSeller {
+                    padding: 0;
+                    margin: 0;
+                    display: flex;
+                    flex-direction: row;
+                    //border: 1px solid red;
+                    flex-wrap: wrap;
+                    list-style: none;
+                    justify-content: center;
+
+                    ul.fromRec {
+                        li {
+                            color: pink;
+                        }
+                    }
+
+                    ul.listSeller {
+                        flex-basis: 45%;
+                        border: 1px solid #CCC;
+                        list-style: none;
+                        padding: 15px;
+                        margin: 10px;
+                        background-color: #acd5d1;
+                        box-shadow: 1px 1px 4px 0px black;
+                        cursor: pointer;
+                        transition: all 0.3s linear;
+                        -webkit-transition: all 0.3s linear;
+                        -moz-transition: all 0.3s linear;
+                        -ms-transition: all 0.3s linear;
+                        -o-transition: all 0.3s linear;
+
+                        &:hover {
+                            box-shadow: none;
+                        }
+
+
+                        li {
+                            border-bottom: 1px solid #4ea29a;
+                            //border: 1px solid blue;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

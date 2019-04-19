@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <link rel='stylesheet' href='/stylesheets/packStyle.css' />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/javascripts/action.js"></script>
+</head>
+
+<body>
+    <div class="boxMainBody">
+        <div class="boxHeader">
+            <%= title %>
+        </div>
+        <div class="boxContain">
+            <div class="boxMenu">
+                <%- include('./mainMenu') -%>
+            </div>
+            <div class="boxArticle" id="getData">
+            </div> <!-- DATALOAD ARTICLES-->
+            <!--<div class="boxArticle">Articles</div> -->
+
+        </div>
+    </div>
+</body>
+
+<script>
+    $(document).ready(function () {
+        loadFromRec();
+    });
+
+    function loadFromRec() {
+        console.log("FromRec");
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:3800/seller",
+            //data: "data",
+            dataType: "json",
+            success: function (res) {
+                //console.log(res)
+                let txt = "<div class = 'boxTitleName'> ::: รับสินค้า ::: </div><div class = 'boxSeller'>"
+
+                for (let i = 0; i < res.length; i++) {
+                    //txt += "<ul class='listSeller' onclick='nextRec(" + res[i].id_seller + ")'>"
+                    txt += "<ul class='listSeller' onclick='selectMenu(4," + res[i].id_seller + ")'>"
+                    txt += "<li>" + res[i].code_seller + "</li>"
+                    txt += "<li>" + res[i].name_seller + "</li>"
+                    txt += "<li>" + res[i].address_seller + "</li>"
+                    txt += "<li>" + res[i].mobile_seller + "</li>"
+                    txt += "<li>" + res[i].fax_seller + "</li>"
+                    txt += "</ul>"
+                }
+                txt += "</div>"
+                //console.log(txt)
+                document.getElementById('getData').innerHTML = txt
+            }
+        })
+
+    }
+</script>
+
+</html>

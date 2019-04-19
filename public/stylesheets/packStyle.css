@@ -1,0 +1,311 @@
+@import url("https://fonts.googleapis.com/css?family=Kanit");
+body {
+  padding: 0;
+  margin: 30px;
+  font-family: 'Kanit', sans-serif; }
+  body .boxMainBody {
+    display: flex;
+    flex-direction: column; }
+    body .boxMainBody .boxHeader {
+      flex: 1;
+      font-size: 30px;
+      justify-content: center;
+      display: flex;
+      background-color: #0d430f;
+      color: beige;
+      padding: 10px; }
+    body .boxMainBody .boxContain {
+      display: flex;
+      flex-direction: row;
+      border: 1px solid #CCC; }
+      body .boxMainBody .boxContain .boxMenu {
+        flex: 1;
+        background-color: #8d918d; }
+        body .boxMainBody .boxContain .boxMenu ul {
+          padding: 0;
+          margin: 0;
+          list-style: none; }
+          body .boxMainBody .boxContain .boxMenu ul li {
+            border-bottom: 1px solid #CCC;
+            font-size: 24px;
+            text-indent: 20px;
+            /* justify-content: center; */
+            /* display: flex; */
+            padding: 5px;
+            background-color: #1b891f;
+            color: #FFEB3B;
+            letter-spacing: 3px;
+            cursor: pointer;
+            transition: all 0.3s linear;
+            -webkit-transition: all 0.3s linear;
+            -moz-transition: all 0.3s linear;
+            -ms-transition: all 0.3s linear;
+            -o-transition: all 0.3s linear; }
+            body .boxMainBody .boxContain .boxMenu ul li:hover {
+              background-color: #FFEB3B;
+              color: #1b891f; }
+      body .boxMainBody .boxContain .boxArticle {
+        flex: 3;
+        border: 1px solid green;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        background-color: #CCC; }
+        body .boxMainBody .boxContain .boxArticle .boxTitleName {
+          font-size: 22px;
+          background-color: #4ea29a;
+          display: flex;
+          justify-content: center;
+          padding: 10px; }
+        body .boxMainBody .boxContain .boxArticle .boxStock {
+          display: flex; }
+          body .boxMainBody .boxContain .boxArticle .boxStock ul {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            padding: 0;
+            margin: 0; }
+            body .boxMainBody .boxContain .boxArticle .boxStock ul li:nth-child(1) {
+              background-color: #0d430f; }
+              body .boxMainBody .boxContain .boxArticle .boxStock ul li:nth-child(1) span {
+                display: flex;
+                color: bisque;
+                justify-content: center; }
+              body .boxMainBody .boxContain .boxArticle .boxStock ul li:nth-child(1) span:nth-child(2) {
+                flex: 3;
+                justify-content: center; }
+            body .boxMainBody .boxContain .boxArticle .boxStock ul li:nth-child(even) {
+              background-color: #939b9b; }
+            body .boxMainBody .boxContain .boxArticle .boxStock ul li {
+              display: flex;
+              flex: 1;
+              flex-direction: row;
+              border-bottom: 1px solid cadetblue; }
+              body .boxMainBody .boxContain .boxArticle .boxStock ul li span:nth-child(1) {
+                flex: 1;
+                justify-content: center; }
+              body .boxMainBody .boxContain .boxArticle .boxStock ul li span:nth-child(2) {
+                flex: 3;
+                justify-content: flex-start; }
+              body .boxMainBody .boxContain .boxArticle .boxStock ul li span {
+                display: flex;
+                border-left: 1px solid cadetblue;
+                flex: 2;
+                justify-content: flex-end; }
+        body .boxMainBody .boxContain .boxArticle .boxSetting {
+          display: flex;
+          flex-direction: column;
+          flex: 1; }
+          body .boxMainBody .boxContain .boxArticle .boxSetting ul {
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            margin: 0;
+            justify-content: center; }
+            body .boxMainBody .boxContain .boxArticle .boxSetting ul li:nth-child(1) {
+              background-color: #0d430f; }
+              body .boxMainBody .boxContain .boxArticle .boxSetting ul li:nth-child(1) span {
+                display: flex;
+                color: bisque;
+                justify-content: center; }
+              body .boxMainBody .boxContain .boxArticle .boxSetting ul li:nth-child(1) span:nth-child(2) {
+                flex: 3;
+                justify-content: center; }
+              body .boxMainBody .boxContain .boxArticle .boxSetting ul li:nth-child(1) span:nth-child(3) {
+                flex: 3;
+                justify-content: center; }
+            body .boxMainBody .boxContain .boxArticle .boxSetting ul li:nth-child(even) {
+              background-color: #939b9b; }
+            body .boxMainBody .boxContain .boxArticle .boxSetting ul li {
+              display: flex;
+              flex: 1;
+              flex-direction: row;
+              border-bottom: 1px solid cadetblue; }
+              body .boxMainBody .boxContain .boxArticle .boxSetting ul li span:nth-child(1) {
+                flex: 1;
+                justify-content: center; }
+              body .boxMainBody .boxContain .boxArticle .boxSetting ul li span:nth-child(2) {
+                flex: 3;
+                justify-content: flex-start; }
+              body .boxMainBody .boxContain .boxArticle .boxSetting ul li span:nth-child(3) {
+                flex: 3;
+                justify-content: flex-start; }
+              body .boxMainBody .boxContain .boxArticle .boxSetting ul li span {
+                display: flex;
+                border-left: 1px solid cadetblue;
+                flex: 2;
+                justify-content: flex-end; }
+                body .boxMainBody .boxContain .boxArticle .boxSetting ul li span input[type="text"] {
+                  flex: 1;
+                  text-align: center;
+                  margin: 0 5px 0 5px; }
+              body .boxMainBody .boxContain .boxArticle .boxSetting ul li button {
+                margin: 10px auto;
+                font-size: 20px;
+                padding: 5px 10px; }
+        body .boxMainBody .boxContain .boxArticle .boxRec {
+          padding: 0;
+          margin: 0;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          list-style: none;
+          justify-content: center; }
+          body .boxMainBody .boxContain .boxArticle .boxRec ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex: 1;
+            justify-content: flex-start;
+            display: flex;
+            flex-direction: column; }
+            body .boxMainBody .boxContain .boxArticle .boxRec ul li.headRec {
+              height: 100px;
+              font-size: 30px;
+              /* text-align: center; */
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              flex-direction: column; }
+              body .boxMainBody .boxContain .boxArticle .boxRec ul li.headRec span {
+                font-size: 28px; }
+              body .boxMainBody .boxContain .boxArticle .boxRec ul li.headRec input {
+                color: blue; }
+            body .boxMainBody .boxContain .boxArticle .boxRec ul li.RecBox1 {
+              display: flex;
+              flex-direction: row; }
+              body .boxMainBody .boxContain .boxArticle .boxRec ul li.RecBox1 .subRecBox1 {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                flex: 1;
+                justify-content: center;
+                border: 1px solid #292f2e;
+                margin: 4px;
+                padding: 10px;
+                justify-content: flex-start;
+                border-radius: 10px span;
+                -webkit-border-radius: 10px;
+                -moz-border-radius: 10px;
+                -ms-border-radius: 10px;
+                -o-border-radius: 10px; }
+                body .boxMainBody .boxContain .boxArticle .boxRec ul li.RecBox1 .subRecBox1 span {
+                  flex-basis: 48%;
+                  font-size: 18px; }
+              body .boxMainBody .boxContain .boxArticle .boxRec ul li.RecBox1 ul.subRecData {
+                display: flex;
+                flex: 1;
+                border: 1px solid red; }
+                body .boxMainBody .boxContain .boxArticle .boxRec ul li.RecBox1 ul.subRecData li {
+                  flex: 1;
+                  border: 1px solid pink; }
+              body .boxMainBody .boxContain .boxArticle .boxRec ul li.RecBox1 .RecboxData {
+                border: 1px solid blue;
+                display: flex;
+                flex: 1;
+                flex-wrap: wrap;
+                margin-top: 10px; }
+                body .boxMainBody .boxContain .boxArticle .boxRec ul li.RecBox1 .RecboxData .RecBoxHead {
+                  flex-basis: 70%;
+                  background-color: #009688;
+                  flex-wrap: wrap; }
+                  body .boxMainBody .boxContain .boxArticle .boxRec ul li.RecBox1 .RecboxData .RecBoxHead ul:nth-child(1) {
+                    background-color: #0d430f;
+                    color: beige; }
+                    body .boxMainBody .boxContain .boxArticle .boxRec ul li.RecBox1 .RecboxData .RecBoxHead ul:nth-child(1) li {
+                      justify-content: center;
+                      align-items: center; }
+                  body .boxMainBody .boxContain .boxArticle .boxRec ul li.RecBox1 .RecboxData .RecBoxHead ul {
+                    display: flex;
+                    flex-basis: 100%;
+                    flex-direction: row;
+                    background-color: beige;
+                    border-bottom: 1px solid #ccc; }
+                    body .boxMainBody .boxContain .boxArticle .boxRec ul li.RecBox1 .RecboxData .RecBoxHead ul li {
+                      flex: 1;
+                      display: flex;
+                      justify-content: center;
+                      border-left: 1px solid #CCC; }
+                      body .boxMainBody .boxContain .boxArticle .boxRec ul li.RecBox1 .RecboxData .RecBoxHead ul li input[type='text'] {
+                        color: darkblue;
+                        text-align: center; }
+                      body .boxMainBody .boxContain .boxArticle .boxRec ul li.RecBox1 .RecboxData .RecBoxHead ul li button {
+                        margin: 10px;
+                        padding: 5px 10px;
+                        font-size: 18px; }
+                body .boxMainBody .boxContain .boxArticle .boxRec ul li.RecBox1 .RecboxData .RecBoxProduct {
+                  margin: 0 0 0 10px;
+                  flex-direction: column;
+                  flex: 1;
+                  background-color: #bbefbd; }
+                  body .boxMainBody .boxContain .boxArticle .boxRec ul li.RecBox1 .RecboxData .RecBoxProduct ul:nth-child(1) {
+                    background-color: #42bc47;
+                    display: flex;
+                    justify-content: center;
+                    flex: 1; }
+                    body .boxMainBody .boxContain .boxArticle .boxRec ul li.RecBox1 .RecboxData .RecBoxProduct ul:nth-child(1) li {
+                      border: none;
+                      display: flex;
+                      justify-content: center; }
+                  body .boxMainBody .boxContain .boxArticle .boxRec ul li.RecBox1 .RecboxData .RecBoxProduct ul:nth-child(2) {
+                    display: flex;
+                    justify-content: center;
+                    flex: 1; }
+                    body .boxMainBody .boxContain .boxArticle .boxRec ul li.RecBox1 .RecboxData .RecBoxProduct ul:nth-child(2) li:nth-child(1) {
+                      display: flex;
+                      background-color: #4dda53; }
+                    body .boxMainBody .boxContain .boxArticle .boxRec ul li.RecBox1 .RecboxData .RecBoxProduct ul:nth-child(2) li {
+                      cursor: pointer;
+                      display: flex;
+                      justify-content: center;
+                      border-bottom: 1px solid #CCC; }
+                      body .boxMainBody .boxContain .boxArticle .boxRec ul li.RecBox1 .RecboxData .RecBoxProduct ul:nth-child(2) li span:nth-child(1) {
+                        display: flex;
+                        flex: 2;
+                        justify-content: center; }
+                      body .boxMainBody .boxContain .boxArticle .boxRec ul li.RecBox1 .RecboxData .RecBoxProduct ul:nth-child(2) li span {
+                        border-left: 1px solid #CCC;
+                        display: flex;
+                        flex: 1;
+                        justify-content: center; }
+                  body .boxMainBody .boxContain .boxArticle .boxRec ul li.RecBox1 .RecboxData .RecBoxProduct ul.recButton li {
+                    display: flex;
+                    justify-content: center;
+                    background-color: #009688;
+                    padding: 5px; }
+                    body .boxMainBody .boxContain .boxArticle .boxRec ul li.RecBox1 .RecboxData .RecBoxProduct ul.recButton li button {
+                      padding: 5px 10px; }
+            body .boxMainBody .boxContain .boxArticle .boxRec ul li label {
+              flex: 1; }
+            body .boxMainBody .boxContain .boxArticle .boxRec ul li input[type='text'] {
+              flex: 3; }
+        body .boxMainBody .boxContain .boxArticle .boxSeller {
+          padding: 0;
+          margin: 0;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          list-style: none;
+          justify-content: center; }
+          body .boxMainBody .boxContain .boxArticle .boxSeller ul.fromRec li {
+            color: pink; }
+          body .boxMainBody .boxContain .boxArticle .boxSeller ul.listSeller {
+            flex-basis: 45%;
+            border: 1px solid #CCC;
+            list-style: none;
+            padding: 15px;
+            margin: 10px;
+            background-color: #acd5d1;
+            box-shadow: 1px 1px 4px 0px black;
+            cursor: pointer;
+            transition: all 0.3s linear;
+            -webkit-transition: all 0.3s linear;
+            -moz-transition: all 0.3s linear;
+            -ms-transition: all 0.3s linear;
+            -o-transition: all 0.3s linear; }
+            body .boxMainBody .boxContain .boxArticle .boxSeller ul.listSeller:hover {
+              box-shadow: none; }
+            body .boxMainBody .boxContain .boxArticle .boxSeller ul.listSeller li {
+              border-bottom: 1px solid #4ea29a; }
+
+/*# sourceMappingURL=packStyle.css.map */

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <link rel='stylesheet' href='/stylesheets/packStyle.css' />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/javascripts/action.js"></script>
+</head>
+
+<body>
+    <div class="boxMainBody">
+        <div class="boxHeader">
+            <%= title %>
+        </div>
+        <div class="boxContain">
+            <div class="boxMenu">
+                <%- include('./mainMenu') -%>
+            </div>
+            <div class="boxArticle" id="getData">
+                <div class='boxTitleName'> ::: รับสินค้า ::: </div>
+                <div class='boxSeller'>
+                    <% for( let i = 0; i < data.length; i++ ) { %>
+                    <ul class="listSeller" onclick='selectRec(<%= data[i].id_seller %>)'>
+                        <li>
+                            <%= data[i].code_seller %>
+                        </li>
+                        <li>
+                            <%= data[i].name_seller %>
+                        </li>
+                        <li>
+                            <%= data[i].address_seller %>
+                        </li>
+                        <li>
+                            <%= data[i].tel_seller %>
+                        </li>
+                        <li>
+                            <%= data[i].mobile_seller %>
+                        </li>
+                        <li>
+                            <%= data[i].tel_seller %>
+                        </li>
+                    </ul>
+                    <% } %>
+
+                </div> <!-- DATALOAD ARTICLES-->
+                <!--<div class="boxArticle">Articles</div> -->
+            </div>
+        </div>
+</body>
+<script>
+    function ll() {
+        alert("TESTll")
+    }
+</script>
+
+</html>

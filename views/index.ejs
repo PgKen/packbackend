@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/packStyle.css' />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="/javascripts/action.js"></script>
+</head>
+
+<body>
+  <div class="boxMainBody">
+    <div class="boxHeader">
+      <%= title %>
+    </div>
+    <div class="boxContain">
+      <div class="boxMenu">
+        <%- include('./mainMenu') -%>
+      </div>
+      <div class="boxArticle" id="getData"></div>
+
+    </div> <!-- DATALOAD ARTICLES-->
+    <!--<div class="boxArticle">Articles</div> -->
+
+  </div>
+  </div>
+</body>
+
+</html>

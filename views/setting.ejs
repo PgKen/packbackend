@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <link rel='stylesheet' href='/stylesheets/packStyle.css' />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/javascripts/action.js"></script>
+</head>
+
+<body>
+    <div class="boxMainBody">
+        <div class="boxHeader">
+            <%= title %>
+        </div>
+        <div class="boxContain">
+            <div class="boxMenu">
+                <%- include('./mainMenu') -%>
+            </div>
+            <div class="boxArticle" id="getData">
+                <div class='boxTitleName'> ::: กำหนดค่า สินค้า ::: </div>
+                <div class='boxSetting'>
+                    <ul>
+                        <li>
+                            <span>ลำดับ</span>
+                            <span>ชื่อสินค้า</span>
+                            <span>ราคาต้นทุน</span>
+                            <span>ราคาขายเงินสด</span>
+                            <span>ราคาขายเงินเชื่อ</span>
+
+                        </li>
+                        <%
+                        let id_seller = 0
+                        for( let i = 0; i < data.length; i++ ) { 
+                            
+                            %>
+                        <li>
+                            <span><%= i+1 %></span>
+                            <span><%= data[i].name_product %></span>
+                            <span>
+                                <input type="text" name="" id="" value="<%= data[i].cost %>">
+                            </span>
+                            <span>
+                                <input type="text" name="" id="" value="<%= data[i].cradit %>">
+                            </span>
+                            <span>
+                                <input type="text" name="" id="" value="<%= data[i].cash %>">
+                            </span>
+
+                        </li>
+                        <% } %>
+
+                    </ul>
+                    <ul>
+                        <li><button>บันทึก</button></li>
+                    </ul>
+                </div> <!-- DATALOAD ARTICLES-->
+                <!--<div class="boxArticle">Articles</div> -->
+            </div>
+        </div>
+</body>
+
+</html>

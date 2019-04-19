@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <link rel='stylesheet' href='/stylesheets/packStyle.css' />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/javascripts/action.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <div class="boxMainBody">
+        <div class="boxHeader">
+            <%= title %>
+        </div>
+        <div class="boxContain">
+            <div class="boxMenu">
+                <%- include('./mainMenu') -%>
+            </div>
+            <div class="boxArticle" id="getData">
+                <div class='boxTitleName' id="boxStatus"> ::: รับสินค้าเข้า ::: </div>
+                <div class='boxRec'>
+                    <ul>
+                        <li class="headRec">
+                            <span>
+                                <%= data[0].name_seller %> </span>
+                            <span>ใบส่งของ</span>
+                        </li>
+
+                        <li class="RecBox1">
+                            <div class="subRecBox1">
+                                <span>ชื่อลูกค้า</span>
+                                <span> คุณลัทธิ แสนรักษ์</span>
+                                <span>ที่อยู่</span>
+                                <span>ตลาดศรีเมือง</span>
+                            </div>
+                            <div class="subRecBox1">
+                                <span>เลขที่</span>
+                                <span><input type="text" id="inputDoNumber" onkeyup="setDoNumber()"></span>
+                                <span>วันที่สั่งสินค้า</span>
+                                <span><input type="date" id="inputDate" onchange="setDate()"></span>
+                            </div>
+                        </li>
+                        <li class="RecBox1">
+                            <div class="subRecBox1">
+                                <span>รหัสลูกค้า</span><span>C0023</span>
+                                <span>ชื่อผู้ติดต่อ</span><span>เฮียแปะ</span>
+                                <span>เบอร์โทร</span>
+                            </div>
+                        </li>
+                        <!-- <form action="/addStock" method="POST"> -->
+                        <form action="/newAddStock" method="POST">
+                            <input type="hidden" id="setDoNumber" name="getDo">
+                            <input type="hidden" id="setDate" name="getDate">
+                            <li class="RecBox1">
+                                <div class="RecboxData">
+
+                                    <div class="RecBoxHead" id="listProduct">
+
+                                        <ul>
+                                            <li style='flex:2;'>รายการ</li>
+                                            <li>จำนวน(ใบ)</li>
+                                            <li>ราคา</li>
+                                            <li>รวมราคา</li>
+                                            <li style='flex:0.5;'>&nbsp;</li>
+                                        </ul>
+                                    </div>
+                                    <div class="RecBoxProduct">
+                                        <ul>
+                                            <li>รายการสินค้าของผู้ขาย</li>
+                                        </ul>
+                                        <ul>
+                                            <li>
+                                                <span>ชื่อสินค้า</span>
+                                                <span>ราคาทุน</span>
+                                            </li>
+                                            <% for( let i = 0; i < data.length; i++ ) { %>
+                                            <li onclick="productAdd(<%= data[i].id %>)">
+                                                <span>
+                                                    <%= data[i].name_product %> </span>
+                                                <span>
+                                                    <%= data[i].cost %> </span>
+                                            </li>
+                                            <% } %>
+
+                                        </ul>
+                                        <ul class="recButton">
+                                            <!-- <li><button onclick="clearListArr()">CLEAR</button></li> -->
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </li>
+                        </form>
+
+                    </ul>
+                </div>
+            </div> <!-- DATALOAD ARTICLES-->
+            <!--<div class="boxArticle">Articles</div> -->
+        </div>
+    </div>
+
+</body>
+<script>
+    let arrIdProduct = new Array();
+    let arrNameProduct = new Array();
+    let arrCostProduct = new Array();
+    let arrUnitProduct = new Array();
+
+    let arrIdSeller = new Array();
+
+
+    $(document).ready(function () {
+        // alert('teds')
+    });
+
+    function clearListArr() {
+        //for (let i = 0; i < arrIdProduct.length; i++) {
+        arrIdProduct = []
+        arrNameProduct = []
+        arrCostProduct = []
+        arrUnitProduct = []
+        arrIdSeller = []
+        //}
+        //console.log(arrNameProduct[0])
+        listProduct();
+    }
+
+    function productAdd(id) {
+        //alert(id)
+        arrIdProduct.push(id)
+        $.ajax({
+            type: "GET",
+            url: "../newproduct/" + id,
+            // data: "data",
+            dataType: "json",
+            success: function (res) {
+                console.log(res);
+                arrNameProduct.push(res[0].name_product)
+                arrCostProduct.push(res[0].cost)
+                arrIdSeller.push(res[0].id_seller)
+                listProduct()
+
+            }
+        });
+        //arrNameProduct.push()
+
+    }
+    /* */
+    function listProduct() {
+        //let txt = "<form action='addStock' method='post'>"
+        let txt = "<ul>"
+        txt += "<li style='flex:2;'> รายการ </li>"
+        txt += "<li> จำนวน(ใบ) </li>"
+        txt += "<li> ราคา </li>"
+        txt += "<li> รวมราคา </li>"
+        txt += "<li style='flex:0.5;'>&nbsp;</li>"
+        txt += "</ul>"
+        for (let i = 0; i < arrIdProduct.length; i++) {
+            txt += "<ul>"
+            txt += "<input name='getId' type='hidden' value='" + arrIdProduct[i] + "'></input>"
+            //txt += "<li>" + arrIdProduct[i] + "</li>"
+            txt += "<li style='flex:2;'>" + arrNameProduct[i] + "</li>"
+
+            if (arrUnitProduct[i] == undefined) {
+                arrUnitProduct[i] = 0
+            }
+            txt += "<li><input type='text' name='getUnit' onkeyup='chgUnit(" + i + ")' value='" + arrUnitProduct[i] +
+                "'></li>"
+            txt += "<li>" + arrCostProduct[i] + "</li>"
+            txt += "<li><span name='getTotal'>" + arrCostProduct[i] * arrUnitProduct[i] + "</span></li>"
+            txt +=
+                "<li style='flex:0.5;cursor: pointer;'><i class='material-icons' style='color:red;' onclick='delArrIndex(" +
+                i +
+                ")'>delete_forever</i></li>"
+            txt += "</ul>"
+
+        }
+        console.log(arrIdProduct[0])
+        if (arrIdProduct[0] != undefined) {
+            txt += "<ul><li><input name='getIdSeller' type='hidden' value='" + arrIdSeller[0] + "'></li></ul>"
+            txt += "<ul><li>"
+            txt += "<button type='submit' onclick='statusSubmit()'>บันทึก</button>"
+            txt += "<button onclick='clearListArr()'>ลบรายการทั้งหมด</button>"
+            txt += "</li></ul>"
+        }
+        document.getElementById('listProduct').innerHTML = txt
+    }
+
+    function statusSubmit() {
+
+        document.getElementById('boxStatus').innerHTML = "กำลังบันทึก................."
+        document.getElementById('boxStatus').style.backgroundColor = "#FF9800"
+
+    }
+
+    function delArrIndex(id) {
+        console.log('del')
+        let valId = arrIdProduct[id]
+        let valName = arrNameProduct[id]
+        let valCost = arrCostProduct[id]
+        let valUnit = arrUnitProduct[id]
+
+        let indexId = arrIdProduct.indexOf(valId)
+        let indexName = arrNameProduct.indexOf(valName)
+        let indexCost = arrCostProduct.indexOf(valCost)
+        let indexUnit = arrUnitProduct.indexOf(valUnit)
+
+        arrIdProduct.splice(indexId, 1)
+        arrNameProduct.splice(indexName, 1)
+        arrCostProduct.splice(indexCost, 1)
+        arrUnitProduct.splice(indexUnit, 1)
+
+        listProduct()
+
+    }
+
+    function chgUnit(id) {
+
+        let getUnit = document.getElementsByName('getUnit')[id].value
+        arrUnitProduct[id] = getUnit
+        console.log("Arr = " + arrUnitProduct[id])
+
+        let getCost = arrCostProduct[id]
+        let Total = getUnit * getCost
+        console.log(getUnit)
+        document.getElementsByName('getTotal')[id].innerHTML = Total
+    }
+
+    function setDoNumber() {
+        let valGet = document.getElementById('inputDoNumber').value
+        document.getElementById('setDoNumber').value = valGet
+    }
+
+    function setDate() {
+        let valGet = document.getElementById('inputDate').value
+        document.getElementById('setDate').value = valGet
+    }
+
+    //$(document).ready(function () {
+    /* *
+    function loadProductList() {
+        $.ajax({
+            type: "GET",
+            url: "../sellerlist",
+            //data: "data",
+            dataType: "json",
+            success: function (res) {
+                let txt =
+                    "<ul><li>รายการ</li><li>จำนวน(ใบ)</li><li>จำนวน(ใบ)</li><li>หมายเหตุ</li></ul>"
+                for (let i = 0; i < res.length; i++) {
+                    txt += "<ul>"
+                    txt += "<li>" + res[i].name_seller + "</li>"
+                    txt += "</ul>"
+
+                }
+                document.getElementById('listProduct').innerHTML = txt
+            }
+        });
+    }*/
+    //});
+</script>
+
+</html>
