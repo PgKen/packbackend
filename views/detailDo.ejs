@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <link rel='stylesheet' href='/stylesheets/packStyle.css' />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/javascripts/action.js"></script>
+</head>
+
+<body>
+    <div class="boxMainBody">
+        <div class="boxHeader">
+            <%= title %>
+        </div>
+        <div class="boxContain">
+            <div class="boxMenu">
+                <%- include('./mainMenu') -%>
+            </div>
+            <div class="boxArticle" id="getData">
+                <div class='boxTitleName'> ::: รายการส่งของ ::: </div>
+                <div class="boxContron">
+                    <span onclick="selectMenu(10)"><i class="material-icons">
+                            reply
+                        </i></span>
+                </div>
+                <div class='boxDoDetail'>
+                    <div class="boxDoHead">
+                        <span><%= data[0].name_seller %></span>
+                        <span>ใบส่งของ</span>
+                    </div>
+                    <div class="boxDoDetail2">
+                        <ul class="boxDoDetailName">
+                            <li>
+                                <span>ชื่อลูกค้า / ชื่อบริษัท</span>
+                                <span>คุณลัทธิ แสนรักษ์</span>
+                                <span>ที่อยู่ลูกค้า</span>
+                                <span>ตลาดศรีเมือง</span>
+                            </li>
+                        </ul>
+                        <ul class="boxDoDetailNum">
+                            <li>
+                                <span>เลขที่</span>
+                                <span><%= data[0].num_do %></span>
+                                <span>วันรับสินค้า</span>
+                                <span><%= moment(data[0].date_do).format("DD-MM-YYYY") %></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="boxDoDetail3">
+                        <ul class="boxDoDetailList">
+                            <li>
+                                <span>ลำดับ</span>
+                                <span>รายการ</span>
+                                <span>ราคา</span>
+                                <span>จำนวน</span>
+                            </li>
+                            <% for( let i = 0; i < dataLength; i++ ) { %>
+                            <li>
+                                <span><%= i+1 %></span>
+                                <span><%= data[i].name_product %></span>
+                                <span><%= data[i].cost %></span>
+                                <span><%= data[i].unit %></span>
+                            </li>
+                            <% } %>
+                        </ul>
+                    </div>
+                </div> <!-- DATALOAD ARTICLES-->
+            </div>
+        </div>
+</body>

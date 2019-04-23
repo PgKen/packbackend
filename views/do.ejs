@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <link rel='stylesheet' href='/stylesheets/packStyle.css' />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/javascripts/action.js"></script>
+</head>
+
+<body>
+    <div class="boxMainBody">
+        <div class="boxHeader">
+            <%= title %>
+        </div>
+
+        <div class="boxContain">
+            <div class="boxMenu">
+                <%- include('./mainMenu') -%>
+            </div>
+            <div class="boxArticle" id="getData">
+                <div class='boxTitleName'> ::: รายการส่งของ ::: </div>
+                <div class='boxDo'>
+                    <ul>
+                        <li>
+                            <span>ลำดับ</span>
+                            <span>
+                                วันที่&nbsp;&nbsp;
+                                <i class="material-icons" onclick="linkDetaliUp()">keyboard_arrow_down</i>&nbsp;
+                                <i class="material-icons" onclick="linkDetaliDown()">keyboard_arrow_up</i>
+
+                            </span>
+                            <span>เลขที่ใบส่งของ</span>
+                        </li>
+                        <% for( let i = 0; i < data.length; i++ ) { %>
+                        <li onclick="linkDetailDo(<%= data[i].id %>)">
+                            <span><%= i+1 %></span>
+                            <span><%= moment( data[i].date_do ).format( 'DD-MMMM-YYYY') %></span>
+                            <span><%= data[i].num_do %></span>
+                        </li>
+                        <% } %>
+
+                    </ul>
+                </div> <!-- DATALOAD ARTICLES-->
+            </div>
+        </div>
+</body>
+<script>
+    function linkDetailDo(id) {
+        location.href = "/Do/" + id
+    }
+
+    function linkDetaliUp() {
+        location.href = "/Do/up"
+    }
+
+    function linkDetaliDown() {
+        location.href = "/Do/down"
+    }
+</script>
+
+</html>

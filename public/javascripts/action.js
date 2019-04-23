@@ -31,6 +31,10 @@ function selectMenu(id, idsub) {
             // window.location('./')
             window.location.href = "/setting/"
             break;
+        case 10:
+            // window.location('./')
+            window.location.href = "/Do/"
+            break;
 
         default:
             //loadHome();

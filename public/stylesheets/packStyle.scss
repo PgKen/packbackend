@@ -42,7 +42,7 @@ body {
                         /* justify-content: center; */
                         /* display: flex; */
                         padding: 5px;
-                        background-color: #1b891f;
+                        background-color: #0d430f;
                         color: #FFEB3B;
                         letter-spacing: 3px;
                         cursor: pointer;
@@ -55,6 +55,22 @@ body {
                         &:hover {
                             background-color: #FFEB3B;
                             color: #1b891f;
+                        }
+                    }
+
+                    .subMenu {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: flex-end;
+
+                        ul {
+                            flex-basis: 90%;
+                            border: 1px solid green;
+
+                            li {
+                                // border: 1px solid red;
+                                background-color: #175d1a;
+                            }
                         }
                     }
                 }
@@ -78,6 +94,29 @@ body {
                     padding: 10px;
                 }
 
+                .boxContron {
+                    display: flex;
+                    padding: 10px 20px;
+                    //border: 1px solid red;
+                    flex-direction: row;
+
+                    span {
+                        flex-basis: 120px;
+                        display: flex;
+                        /* border: 1px solid blue; */
+                        justify-content: center;
+                        background-color: #607D8B;
+                        color: lavender;
+                        cursor: pointer;
+
+                        &:hover {
+                            background-color: #37716c;
+                            color: orange;
+                        }
+                    }
+
+                }
+
                 .boxStock {
                     display: flex;
                     //border: 1px solid red;
@@ -87,7 +126,8 @@ body {
                         flex: 1;
                         flex-direction: column;
                         padding: 0;
-                        margin: 0;
+                        margin: 20px 5px;
+                        border: 1px solid cadetblue;
 
                         li:nth-child(1) {
                             //border: 1px solid red;
@@ -140,6 +180,235 @@ body {
                     }
                 }
 
+                .boxDo {
+                    display: flex;
+                    //border: 1px solid red;
+
+                    ul {
+                        display: flex;
+                        flex: 1;
+                        flex-direction: column;
+                        padding: 0;
+                        margin: 20px 5px;
+                        border: 1px solid cadetblue;
+                        //box-shadow: 3px 2px 10px black;
+
+                        li:nth-child(1) {
+                            //border: 1px solid red;
+                            background-color: #0d430f;
+
+                            span:nth-child(1) {
+                                flex: 1;
+                            }
+
+                            span {
+                                flex: 4;
+                                display: flex;
+                                color: bisque;
+                                justify-content: center;
+
+                                .material-icons {
+                                    //color: orange;
+                                    color: #FF9800;
+                                    background-color: #16991b;
+
+                                    &:hover {
+                                        color: #292f2e;
+                                        background-color: #FF9800;
+                                    }
+                                }
+
+                            }
+
+                            &:hover {
+                                background-color: #0d430f;
+                            }
+                        }
+
+                        li:nth-child(even) {
+                            background-color: #939b9b;
+                        }
+
+                        li {
+                            display: flex;
+                            flex: 1;
+                            flex-direction: row;
+                            border-bottom: 1px solid cadetblue;
+
+                            span:nth-child(1) {
+                                flex: 1;
+                            }
+
+                            span {
+                                display: flex;
+                                border-left: 1px solid cadetblue;
+                                flex: 4;
+                                justify-content: center;
+                                padding: 2px 10px;
+
+                                //border: 1px solid green;
+                            }
+
+                            &:hover {
+                                // color: red;
+                                cursor: pointer;
+                                background-color: #37716c;
+                            }
+                        }
+                    }
+                }
+
+                .boxDoDetail {
+                    display: flex;
+                    //border: 1px solid red;
+                    flex-direction: column;
+                    margin: 0px 20px;
+                    background-color: white;
+
+                    .boxDoHead {
+                        display: flex;
+                        flex-direction: column;
+                        border: 1px solid #CCC;
+                        justify-content: center;
+                        padding: 20px;
+
+                        span {
+                            display: flex;
+                            flex: 1;
+                            justify-content: center;
+                            font-size: 40px;
+                        }
+
+                        span:nth-child(2) {
+                            display: flex;
+                            flex: 1;
+                            justify-content: center;
+                            font-size: 36px;
+                        }
+                    }
+
+                    .boxDoDetail2 {
+                        display: flex;
+                        //border: 1px solid red;
+                        flex-direction: row;
+
+                        ul.boxDoDetailName {
+                            padding: 10px;
+                            margin: 0;
+                            list-style: none;
+                            flex: 1;
+                            display: flex;
+                            flex-direction: column;
+                            border: 1px solid #CCC;
+
+                            li {
+                                display: flex;
+                                flex-direction: row;
+                                flex-wrap: wrap;
+                                justify-content: flex-start;
+
+                                span {
+                                    display: flex;
+                                    flex-basis: 48%;
+                                    //border: 1px solid #ccc;
+                                }
+
+                            }
+                        }
+
+                        ul.boxDoDetailNum {
+                            padding: 10px;
+                            margin: 0;
+                            list-style: none;
+                            flex: 1;
+                            display: flex;
+                            flex-direction: column;
+                            border: 1px solid #CCC;
+
+                            li {
+                                display: flex;
+                                flex-direction: row;
+                                flex-wrap: wrap;
+                                justify-content: flex-start;
+
+                                span {
+                                    display: flex;
+                                    flex-basis: 48%;
+                                    //border: 1px solid #ccc;
+                                }
+
+                            }
+                        }
+
+
+                    }
+
+                    .boxDoDetail3 {
+                        display: flex;
+                        //border: 1px solid red;
+                        flex-direction: row;
+
+                        ul.boxDoDetailList {
+                            padding: 10px;
+                            margin: 0;
+                            list-style: none;
+                            flex: 1;
+                            display: flex;
+                            flex-direction: column;
+                            //border: 1px solid red;
+
+                            li:nth-child(1) {
+                                background-color: #cccccc;
+
+                                span:nth-child(1) {
+                                    flex: 1;
+                                }
+
+                                span:nth-child(4) {
+                                    display: flex;
+                                    flex: 2;
+                                    justify-content: center;
+                                }
+
+                                span {
+                                    padding: 10px 0px;
+                                    flex: 4;
+                                    justify-content: center;
+                                }
+                            }
+
+                            li {
+                                padding: 0;
+                                margin: 0;
+                                list-style: none;
+                                flex-direction: row;
+                                display: flex;
+                                border-bottom: 1px solid #a09a9a;
+                                border-right: 1px solid #a09a9a;
+
+                                span:nth-child(1) {
+                                    flex: 1;
+                                    justify-content: center;
+                                }
+
+                                span:nth-child(3),
+                                span:nth-child(4) {
+                                    display: flex;
+                                    flex: 2;
+                                    justify-content: center;
+                                }
+
+                                span {
+                                    display: flex;
+                                    flex: 4;
+                                    border-left: 1px solid #a09a9a;
+                                    text-indent: 20px;
+                                }
+                            }
+                        }
+                    }
+                }
+
                 .boxSetting {
                     display: flex;
                     flex-direction: column;
@@ -151,8 +420,10 @@ body {
                         //flex: 1;
                         flex-direction: column;
                         padding: 0;
-                        margin: 0;
+                        margin: 20px 5px;
                         justify-content: center;
+                        border: 1px solid cadetblue;
+
 
                         li:nth-child(1) {
                             //border: 1px solid red;

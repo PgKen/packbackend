@@ -32,7 +32,7 @@ body {
             /* justify-content: center; */
             /* display: flex; */
             padding: 5px;
-            background-color: #1b891f;
+            background-color: #0d430f;
             color: #FFEB3B;
             letter-spacing: 3px;
             cursor: pointer;
@@ -44,6 +44,15 @@ body {
             body .boxMainBody .boxContain .boxMenu ul li:hover {
               background-color: #FFEB3B;
               color: #1b891f; }
+          body .boxMainBody .boxContain .boxMenu ul .subMenu {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end; }
+            body .boxMainBody .boxContain .boxMenu ul .subMenu ul {
+              flex-basis: 90%;
+              border: 1px solid green; }
+              body .boxMainBody .boxContain .boxMenu ul .subMenu ul li {
+                background-color: #175d1a; }
       body .boxMainBody .boxContain .boxArticle {
         flex: 3;
         border: 1px solid green;
@@ -57,6 +66,21 @@ body {
           display: flex;
           justify-content: center;
           padding: 10px; }
+        body .boxMainBody .boxContain .boxArticle .boxContron {
+          display: flex;
+          padding: 10px 20px;
+          flex-direction: row; }
+          body .boxMainBody .boxContain .boxArticle .boxContron span {
+            flex-basis: 120px;
+            display: flex;
+            /* border: 1px solid blue; */
+            justify-content: center;
+            background-color: #607D8B;
+            color: lavender;
+            cursor: pointer; }
+            body .boxMainBody .boxContain .boxArticle .boxContron span:hover {
+              background-color: #37716c;
+              color: orange; }
         body .boxMainBody .boxContain .boxArticle .boxStock {
           display: flex; }
           body .boxMainBody .boxContain .boxArticle .boxStock ul {
@@ -64,7 +88,8 @@ body {
             flex: 1;
             flex-direction: column;
             padding: 0;
-            margin: 0; }
+            margin: 20px 5px;
+            border: 1px solid cadetblue; }
             body .boxMainBody .boxContain .boxArticle .boxStock ul li:nth-child(1) {
               background-color: #0d430f; }
               body .boxMainBody .boxContain .boxArticle .boxStock ul li:nth-child(1) span {
@@ -93,6 +118,149 @@ body {
                 flex: 2;
                 justify-content: flex-end;
                 padding: 2px 10px; }
+        body .boxMainBody .boxContain .boxArticle .boxDo {
+          display: flex; }
+          body .boxMainBody .boxContain .boxArticle .boxDo ul {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            padding: 0;
+            margin: 20px 5px;
+            border: 1px solid cadetblue; }
+            body .boxMainBody .boxContain .boxArticle .boxDo ul li:nth-child(1) {
+              background-color: #0d430f; }
+              body .boxMainBody .boxContain .boxArticle .boxDo ul li:nth-child(1) span:nth-child(1) {
+                flex: 1; }
+              body .boxMainBody .boxContain .boxArticle .boxDo ul li:nth-child(1) span {
+                flex: 4;
+                display: flex;
+                color: bisque;
+                justify-content: center; }
+                body .boxMainBody .boxContain .boxArticle .boxDo ul li:nth-child(1) span .material-icons {
+                  color: #FF9800;
+                  background-color: #16991b; }
+                  body .boxMainBody .boxContain .boxArticle .boxDo ul li:nth-child(1) span .material-icons:hover {
+                    color: #292f2e;
+                    background-color: #FF9800; }
+              body .boxMainBody .boxContain .boxArticle .boxDo ul li:nth-child(1):hover {
+                background-color: #0d430f; }
+            body .boxMainBody .boxContain .boxArticle .boxDo ul li:nth-child(even) {
+              background-color: #939b9b; }
+            body .boxMainBody .boxContain .boxArticle .boxDo ul li {
+              display: flex;
+              flex: 1;
+              flex-direction: row;
+              border-bottom: 1px solid cadetblue; }
+              body .boxMainBody .boxContain .boxArticle .boxDo ul li span:nth-child(1) {
+                flex: 1; }
+              body .boxMainBody .boxContain .boxArticle .boxDo ul li span {
+                display: flex;
+                border-left: 1px solid cadetblue;
+                flex: 4;
+                justify-content: center;
+                padding: 2px 10px; }
+              body .boxMainBody .boxContain .boxArticle .boxDo ul li:hover {
+                cursor: pointer;
+                background-color: #37716c; }
+        body .boxMainBody .boxContain .boxArticle .boxDoDetail {
+          display: flex;
+          flex-direction: column;
+          margin: 0px 20px;
+          background-color: white; }
+          body .boxMainBody .boxContain .boxArticle .boxDoDetail .boxDoHead {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #CCC;
+            justify-content: center;
+            padding: 20px; }
+            body .boxMainBody .boxContain .boxArticle .boxDoDetail .boxDoHead span {
+              display: flex;
+              flex: 1;
+              justify-content: center;
+              font-size: 40px; }
+            body .boxMainBody .boxContain .boxArticle .boxDoDetail .boxDoHead span:nth-child(2) {
+              display: flex;
+              flex: 1;
+              justify-content: center;
+              font-size: 36px; }
+          body .boxMainBody .boxContain .boxArticle .boxDoDetail .boxDoDetail2 {
+            display: flex;
+            flex-direction: row; }
+            body .boxMainBody .boxContain .boxArticle .boxDoDetail .boxDoDetail2 ul.boxDoDetailName {
+              padding: 10px;
+              margin: 0;
+              list-style: none;
+              flex: 1;
+              display: flex;
+              flex-direction: column;
+              border: 1px solid #CCC; }
+              body .boxMainBody .boxContain .boxArticle .boxDoDetail .boxDoDetail2 ul.boxDoDetailName li {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: flex-start; }
+                body .boxMainBody .boxContain .boxArticle .boxDoDetail .boxDoDetail2 ul.boxDoDetailName li span {
+                  display: flex;
+                  flex-basis: 48%; }
+            body .boxMainBody .boxContain .boxArticle .boxDoDetail .boxDoDetail2 ul.boxDoDetailNum {
+              padding: 10px;
+              margin: 0;
+              list-style: none;
+              flex: 1;
+              display: flex;
+              flex-direction: column;
+              border: 1px solid #CCC; }
+              body .boxMainBody .boxContain .boxArticle .boxDoDetail .boxDoDetail2 ul.boxDoDetailNum li {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: flex-start; }
+                body .boxMainBody .boxContain .boxArticle .boxDoDetail .boxDoDetail2 ul.boxDoDetailNum li span {
+                  display: flex;
+                  flex-basis: 48%; }
+          body .boxMainBody .boxContain .boxArticle .boxDoDetail .boxDoDetail3 {
+            display: flex;
+            flex-direction: row; }
+            body .boxMainBody .boxContain .boxArticle .boxDoDetail .boxDoDetail3 ul.boxDoDetailList {
+              padding: 10px;
+              margin: 0;
+              list-style: none;
+              flex: 1;
+              display: flex;
+              flex-direction: column; }
+              body .boxMainBody .boxContain .boxArticle .boxDoDetail .boxDoDetail3 ul.boxDoDetailList li:nth-child(1) {
+                background-color: #cccccc; }
+                body .boxMainBody .boxContain .boxArticle .boxDoDetail .boxDoDetail3 ul.boxDoDetailList li:nth-child(1) span:nth-child(1) {
+                  flex: 1; }
+                body .boxMainBody .boxContain .boxArticle .boxDoDetail .boxDoDetail3 ul.boxDoDetailList li:nth-child(1) span:nth-child(4) {
+                  display: flex;
+                  flex: 2;
+                  justify-content: center; }
+                body .boxMainBody .boxContain .boxArticle .boxDoDetail .boxDoDetail3 ul.boxDoDetailList li:nth-child(1) span {
+                  padding: 10px 0px;
+                  flex: 4;
+                  justify-content: center; }
+              body .boxMainBody .boxContain .boxArticle .boxDoDetail .boxDoDetail3 ul.boxDoDetailList li {
+                padding: 0;
+                margin: 0;
+                list-style: none;
+                flex-direction: row;
+                display: flex;
+                border-bottom: 1px solid #a09a9a;
+                border-right: 1px solid #a09a9a; }
+                body .boxMainBody .boxContain .boxArticle .boxDoDetail .boxDoDetail3 ul.boxDoDetailList li span:nth-child(1) {
+                  flex: 1;
+                  justify-content: center; }
+                body .boxMainBody .boxContain .boxArticle .boxDoDetail .boxDoDetail3 ul.boxDoDetailList li span:nth-child(3),
+                body .boxMainBody .boxContain .boxArticle .boxDoDetail .boxDoDetail3 ul.boxDoDetailList li span:nth-child(4) {
+                  display: flex;
+                  flex: 2;
+                  justify-content: center; }
+                body .boxMainBody .boxContain .boxArticle .boxDoDetail .boxDoDetail3 ul.boxDoDetailList li span {
+                  display: flex;
+                  flex: 4;
+                  border-left: 1px solid #a09a9a;
+                  text-indent: 20px; }
         body .boxMainBody .boxContain .boxArticle .boxSetting {
           display: flex;
           flex-direction: column;
@@ -101,8 +269,9 @@ body {
             display: flex;
             flex-direction: column;
             padding: 0;
-            margin: 0;
-            justify-content: center; }
+            margin: 20px 5px;
+            justify-content: center;
+            border: 1px solid cadetblue; }
             body .boxMainBody .boxContain .boxArticle .boxSetting ul li:nth-child(1) {
               background-color: #0d430f; }
               body .boxMainBody .boxContain .boxArticle .boxSetting ul li:nth-child(1) span {

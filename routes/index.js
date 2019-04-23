@@ -1,6 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
+//var dateFormat = require('dateformat');
+var moment = require('moment');
+
 var unirest = require('unirest');
 
 var mysql = require('mysql')
@@ -308,7 +311,6 @@ router.post('/newAddStock', (req, res) => {
             conn.query(sqlInsDo, (err, resultInsDo) => {
               if (err) throw err;
               console.log("Success InsDo"); // commit 19-4-62
-
             })
 
             res.redirect('stock')
@@ -373,14 +375,24 @@ router.post('/newAddStock', (req, res) => {
             conn.query(sqlUpdate, (err, resultUpdate) => {
               console.log("Multi update Ok");
               stausSuccess = 1
+
+              // INS New Do
+              let sqlInsDo = "INSERT INTO new_do(date_do,num_do,unit,price_do,id_product) "
+              sqlInsDo += "VALUES ('" + valDate[0] + "','" + valDo[0] + "', '" +
+                valUnit[i] + "', '" + result[0].cost + "', '" + result[0].id_stock + "');"
+              console.log("sql = " + sqlInsDo);
+              conn.query(sqlInsDo, (err, resultInsDo) => {
+                if (err) throw err;
+                console.log("Success InsDo"); // commit 19-4-62
+              })
+              // End INS New Do
+
             })
             //res.redirect('stock')
 
           } else {
             console.log("insert multi 11");
           }
-
-
         })
 
         console.log("------sql_in_up--------");
@@ -473,6 +485,80 @@ router.get('/setting', (req, res) => {
       })
       //console.log(result);
   })*/
+
+})
+
+
+router.get('/Do', (req, res) => {
+  let sql = "SELECT * FROM new_do group by num_do order by date_do DESC"
+  conn.query(sql, (err, result) => {
+    console.log(result);
+    res.render('do', {
+      title: "บ้านบรรจุภัณฑ์",
+      data: result,
+      moment: moment
+    })
+  })
+})
+
+router.get('/Do/up', (req, res) => {
+  let sql = "SELECT * FROM new_do group by num_do order by date_do ASC"
+  conn.query(sql, (err, result) => {
+    console.log(result);
+    res.render('do', {
+      title: "บ้านบรรจุภัณฑ์",
+      data: result,
+      moment: moment
+    })
+  })
+})
+
+router.get('/Do/down', (req, res) => {
+  let sql = "SELECT * FROM new_do group by num_do order by date_do DESC"
+  conn.query(sql, (err, result) => {
+    //
+
+    res.render('do', {
+      title: "บ้านบรรจุภัณฑ์",
+      data: result,
+      moment: moment
+    })
+
+  })
+})
+
+router.get('/Do/:id', (req, res) => {
+  let valId = req.params.id
+  //res.send(valId)
+  let sql = "SELECT * FROM new_do WHERE id = " + valId
+  conn.query(sql, (err, result) => {
+    //console.log(result);
+
+    // let sqlRes = "SELECT *, new_do.id AS Do_Id FROM "
+    // sqlRes += "new_do INNER JOIN new_product ON new_do.id_product = new_product.id_stock "
+    // sqlRes += "WHERE new_do.num_do = '" + result[0].num_do + "' "
+    // sqlRes += "GROUP BY new_do.id"
+
+    let sqlRes = "SELECT *, new_do.id AS Do_Id "
+    sqlRes += "FROM new_do "
+    sqlRes += "INNER JOIN new_product ON new_do.id_product = new_product.id_stock "
+    sqlRes += "INNER JOIN seller ON new_product.id_seller = seller.id_seller "
+    sqlRes += "WHERE new_do.num_do = '" + result[0].num_do + "' "
+    sqlRes += "GROUP BY new_do.id"
+
+    console.log(sqlRes);
+
+    conn.query(sqlRes, (err, resultRe) => {
+      //res.send(resultRe)
+      res.render('detailDo', {
+        title: "บ้านบรรจุภัณฑ์",
+        data: resultRe,
+        dataLength: resultRe.length,
+        moment: moment
+      })
+    })
+  })
+
 
 })
 
